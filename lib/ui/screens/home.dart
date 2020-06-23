@@ -36,6 +36,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       textAlign: TextAlign.center,
                     ),
                     SizedBox(height: 20.0),
+                    Text(
+                      snapshot.data.date,
+                      textAlign: TextAlign.center,
+                    ),
+                    SizedBox(height: 20.0),
                     StatisticCard(
                       color: Colors.red,
                       title: 'Случаев заболевания',

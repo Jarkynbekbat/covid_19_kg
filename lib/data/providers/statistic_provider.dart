@@ -11,6 +11,13 @@ class StatisticProvider {
     final response = await http.get(url);
 
     dom.Document document = parser.parse(response.body);
+    //
+
+    String dateText = document
+        .getElementsByClassName('data-name ml-3 mb-3')[0]
+        .text
+        .substring(17);
+
     int allCases =
         int.parse(document.getElementsByClassName('data-active')[0].innerHtml);
     int todayCases =
@@ -21,6 +28,7 @@ class StatisticProvider {
         int.parse(document.getElementsByClassName('data-deatg')[0].innerHtml);
 
     return StatisticData(
+      date: dateText,
       allCases: allCases,
       todayCases: todayCases,
       recovered: recovered,

@@ -1,21 +1,9 @@
-// import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import 'ui/screens/home.dart';
 
 void main() {
-  runApp(
-    // EasyLocalization(
-    //   path: '/langs/langs.csv',
-    //   saveLocale: true,
-    //   supportedLocales: [
-    //     Locale('ky', 'KG'),
-    //     Locale('ru', 'RU'),
-    //   ],
-    // child:
-    MyApp(),
-    // ),
-  );
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -28,9 +16,6 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: HomeScreen(),
-      // localizationsDelegates: context.localizationDelegates,
-      // supportedLocales: context.supportedLocales,
-      // locale: context.locale,
     );
   }
 }
