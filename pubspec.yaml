@@ -1,0 +1,30 @@
+name: covid_19_kg
+description: flutter app for fetching official statistic of COVID-19 in Kygryzstan.
+
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  http: ^0.12.1
+  html: ^0.14.0+3
+  url_launcher: ^5.4.11
+  # easy_localization: ^2.3.2
+  cupertino_icons: ^0.1.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+assets:
+  - langs/ru-RU.json
+  - langs/ky-KG.json
