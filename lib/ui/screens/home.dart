@@ -3,6 +3,8 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../../data/models/statistic_data.dart';
 import '../../data/providers/statistic_provider.dart';
+import '../../localization/demo_localization.dart';
+import '../../main.dart';
 import '../widgets/statistic_card.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -11,6 +13,21 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  void _changeLanguage(Locale language) {
+    Locale _temp;
+    switch (language.languageCode) {
+      case 'en':
+        _temp = Locale(language.languageCode, 'US');
+        break;
+      case 'ky':
+        _temp = Locale(language.languageCode, 'KG');
+        break;
+      default:
+        _temp = Locale(language.languageCode, 'US');
+    }
+    MyApp.setLocale(context, _temp);
+  }
+
   @override
   Widget build(BuildContext context) {
     StatisticProvider statisticProvider = StatisticProvider();
@@ -19,7 +36,31 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: Text('COVID-19 KG'),
         centerTitle: true,
-        actions: <Widget>[],
+        actions: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: DropdownButton(
+              items: [
+                DropdownMenuItem(
+                  child: Text('KG'),
+                  value: Locale('ky', 'KG'),
+                ),
+                DropdownMenuItem(
+                  child: Text('RU'),
+                  value: Locale('ru', 'RU'),
+                ),
+                DropdownMenuItem(
+                  child: Text('EN'),
+                  value: Locale('en', 'US'),
+                ),
+              ],
+              onChanged: (Locale language) {
+                _changeLanguage(language);
+              },
+              icon: Icon(Icons.language, color: Colors.white),
+            ),
+          )
+        ],
       ),
       body: RefreshIndicator(
         onRefresh: _onRefresh,
@@ -28,41 +69,49 @@ class _HomeScreenState extends State<HomeScreen> {
           child: FutureBuilder<StatisticData>(
             future: statisticProvider.getStatisticData(),
             builder: (context, snapshot) {
-              if (snapshot.hasData)
+              if (snapshot.hasData) {
                 return ListView(
                   children: <Widget>[
                     Text(
-                      'Данные получены из официального сайта о коронавирусе в Кыргызстане',
+                      DemoLocalization.of(context).getTranslatedValue('title'),
                       textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.bodyText1,
                     ),
                     SizedBox(height: 20.0),
                     Text(
-                      snapshot.data.date,
+                      DemoLocalization.of(context).getTranslatedValue('state') +
+                          snapshot.data.date,
                       textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.bodyText1,
                     ),
                     SizedBox(height: 20.0),
                     StatisticCard(
                       color: Colors.red,
-                      title: 'Случаев заболевания',
+                      title: DemoLocalization.of(context)
+                          .getTranslatedValue('allCases'),
                       count: snapshot.data.allCases,
                     ),
                     StatisticCard(
                       color: Colors.green,
-                      title: 'Выздоровело',
+                      title: DemoLocalization.of(context)
+                          .getTranslatedValue('recovered'),
                       count: snapshot.data.recovered,
                     ),
                     StatisticCard(
                       color: Colors.orange,
-                      title: 'Случаев заболевания на текущий день',
+                      title: DemoLocalization.of(context)
+                          .getTranslatedValue('todayCases'),
                       count: snapshot.data.todayCases,
                     ),
                     StatisticCard(
                       color: Colors.redAccent,
-                      title: 'Случаев смерти',
+                      title: DemoLocalization.of(context)
+                          .getTranslatedValue('deaths'),
                       count: snapshot.data.deaths,
                     ),
                   ],
                 );
+              }
               if (snapshot.hasError)
                 return Center(child: Text(snapshot.error.toString()));
               else
@@ -74,7 +123,7 @@ class _HomeScreenState extends State<HomeScreen> {
       floatingActionButton: RaisedButton(
         color: Theme.of(context).accentColor,
         child: Text(
-          'Посетить сайт',
+          DemoLocalization.of(context).getTranslatedValue('visitSite'),
           style: TextStyle(color: Colors.white),
         ),
         onPressed: () async => await _launchURL(statisticProvider.url),

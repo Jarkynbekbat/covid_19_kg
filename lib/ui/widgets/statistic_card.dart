@@ -25,7 +25,7 @@ class StatisticCard extends StatelessWidget {
           ),
         ),
         subtitle: Text('$title'),
-        trailing: IconButton(icon: Icon(Icons.arrow_forward), onPressed: () {}),
+        // trailing: IconButton(icon: Icon(Icons.arrow_forward), onPressed: () {}),
       ),
     );
   }

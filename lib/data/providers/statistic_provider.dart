@@ -16,7 +16,7 @@ class StatisticProvider {
     String dateText = document
         .getElementsByClassName('data-name ml-3 mb-3')[0]
         .text
-        .substring(17);
+        .substring(32);
 
     int allCases =
         int.parse(document.getElementsByClassName('data-active')[0].innerHtml);
