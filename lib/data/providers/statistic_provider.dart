@@ -17,7 +17,6 @@ class StatisticProvider {
         .getElementsByClassName('data-name ml-3 mb-3')[0]
         .text
         .substring(32);
-
     int allCases =
         int.parse(document.getElementsByClassName('data-active')[0].innerHtml);
     int todayCases =

@@ -92,6 +92,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       count: snapshot.data.allCases,
                     ),
                     StatisticCard(
+                      color: Colors.redAccent,
+                      title: DemoLocalization.of(context)
+                          .getTranslatedValue('activeCases'),
+                      count: snapshot.data.activeCases,
+                    ),
+                    StatisticCard(
                       color: Colors.green,
                       title: DemoLocalization.of(context)
                           .getTranslatedValue('recovered'),

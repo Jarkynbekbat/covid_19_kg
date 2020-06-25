@@ -6,6 +6,7 @@ class StatisticData {
   final int todayCases;
   final int recovered;
   final int deaths;
+  int activeCases;
 
   StatisticData({
     @required this.date,
@@ -13,5 +14,7 @@ class StatisticData {
     @required this.todayCases,
     @required this.recovered,
     @required this.deaths,
-  });
+  }) {
+    activeCases = allCases - (recovered + deaths);
+  }
 }
