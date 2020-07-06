@@ -3,11 +3,11 @@
 flutter app for fetching official statistic of COVID-19 in Kygryzstan.
 
 ## UI
-![Screenshot](https://github.com/Jarkynbekbat/covid_19_kg/blob/master/assets/screenshots/screenshot_1.png)
-![Screenshot](https://github.com/Jarkynbekbat/covid_19_kg/blob/master/assets/screenshots/screenshot_2.png)
-![Screenshot](https://github.com/Jarkynbekbat/covid_19_kg/blob/master/assets/screenshots/screenshot_3.png)
-
-
+<p align="center">
+  <img src="https://github.com/Jarkynbekbat/covid_19_kg/blob/master/assets/screenshots/screenshot_1.png" width="250">
+  <img src="https://github.com/Jarkynbekbat/covid_19_kg/blob/master/assets/screenshots/screenshot_2.png" width="250">
+  <img src="https://github.com/Jarkynbekbat/covid_19_kg/blob/master/assets/screenshots/screenshot_3.png" width="250">
+<p/>
 
 
 
