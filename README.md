@@ -1,6 +1,14 @@
 # covid_19_kg
 
-A new Flutter project.
+flutter app for fetching official statistic of COVID-19 in Kygryzstan.
+
+## UI
+![alt text](https://github.com/Jarkynbekbat/covid_19_kg/blob/master/assets/screenshots/screenshot_1.png?raw=true)
+![alt text](https://github.com/Jarkynbekbat/covid_19_kg/blob/master/assets/screenshots/screenshot_2.png?raw=true)
+![alt text](https://github.com/Jarkynbekbat/covid_19_kg/blob/master/assets/screenshots/screenshot_3.png?raw=true)
+
+
+
 
 ## Getting Started
 
